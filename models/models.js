@@ -13,5 +13,11 @@ export async function getData(){
      return allData.filter((note) => note.topics.includes(topic));
 
  }
+
+ export async function getByDate(date){
+    const allData = await getData();
+    return allData.filter((note) => note.date.includes(date));
+
+}
  
  
