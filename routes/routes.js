@@ -1,9 +1,19 @@
 import express from "express";
 const router = express.Router();
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.json({ message: "I wish we had some information to give you ☹️" });
+import {getData} from "../models/models.js" 
+
+//GET REQUEST AlL USER
+router.get("/", async function (req, res) {
+    const allData = await getData();
+    let responseObj = {
+        sucess: true,
+        data: allData
+    }
+    res.json(responseObj);
+    console.log (responseObj);
+
 });
 
 export default router;
+
