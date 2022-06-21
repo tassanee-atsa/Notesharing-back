@@ -8,19 +8,10 @@ export async function getData(){
     
     }
 
-    export async function getByDate(){
-        const res = await query('SELECT * FROM getanote WHERE date = "20/06/2022" ')
-        console.log(res.rows);
-        
-        return res.rows;
-        
-        }
+ export async function getByTopic(topic){
+     const allData = await getData();
+     return allData.filter((note) => note.topics.includes(topic));
 
-
- export async function getByTopic(){
-        const res = await query('SELECT * FROM getanote WHERE topic LIKE  %Jest% ')
-        console.log(res.rows);
-            
-        return res.rows;
-            
-            }
+ }
+ 
+ 
