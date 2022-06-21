@@ -1,0 +1,45 @@
+x install express - 
+x install nodemon 
+x install .env 
+x install pg
+
+x .git ignore
+
+x create  scripts to run server and env 
+
+
+ file structure 
+   / db folder 
+        index.js  (Connet to db - import pg and .env)  
+        scripts
+            create table (import function from index.js, sql string  id/key, date, topics, content)
+            populate table (import function from index.js - hard code some info to populate table )
+
+   /  models folder
+        models.js  (requests to the db,  eg find by date, find by topic)
+
+   / libs folder
+        libs.js ( hard coded data (Object containing  data fields for the tabel) to populate table )
+
+   /  routes folder
+        routes.js  (import express, import models functions, get/post/patch , export router to app.js?) 
+
+x create .env file
+ 
+create a db on heroku
+
+add scripts to package json 
+
+
+
+write function to create table in db  
+
+Table contents / columns
+        Key /ID 
+        Date (Data type date)
+        Topics (Text)
+        Content (Text)
+
+Insert Into / Populate table 
+
+
