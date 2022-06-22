@@ -3,7 +3,8 @@ const router = express.Router();
 
 import {getData,
         getByTopic,
-        getByDate
+        getByDate, 
+        updateByDate
 } from "../models/models.js" 
 
 //GET REQUEST ALL DATA
@@ -31,6 +32,15 @@ router.get("/date/:keyword", async function(req, res){
     });
     
 
+
+router.put("/date/:keyword", function(req, res) {
+    const searchDate = req.params.keyword;
+    const body = req.body;
+    let updateData = await updateByDate(keyword)
+    getanote[updateData] = body;
+    const responseObject = { success: true, message: 'Your note has been updated' , data: getanote };
+    res.json(responseObject);
+      })  
 
 export default router;
 
