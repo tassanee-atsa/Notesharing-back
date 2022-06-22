@@ -1,3 +1,4 @@
+// populted the table on the database
 export const getData = [{
 date : " 13-06-2022 ",
 topics : "Use Reducer",

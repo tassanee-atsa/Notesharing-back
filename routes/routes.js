@@ -19,19 +19,22 @@ router.get("/", async function (req, res) {
 
 });
 
+//GETS DATA BY TOPIC
 router.get("/topics/:keyword", async function(req, res){
 let keyword = req.params.keyword;
 let dataByTopic = await getByTopic(keyword);
 res.json({success : true, payload: dataByTopic});
 });
 
+//GETS DATA BY DATE
 router.get("/date/:keyword", async function(req, res){
     let keyword = req.params.keyword;
     let dataByDate = await getByDate(keyword);
     res.json({success : true, payload: dataByDate});
     });
     
-
+    
+//UPDATES TOPIC AND NOTES FIELDS
 router.put("/date/:keyword", async function(req, res) {
     //const updateData = req.params.keyword;
     const body = req.body;
