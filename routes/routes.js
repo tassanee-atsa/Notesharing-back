@@ -32,15 +32,16 @@ router.get("/date/:keyword", async function(req, res){
     });
     
 
-
-router.put("/date/:keyword", function(req, res) {
-    const searchDate = req.params.keyword;
+router.put("/date/:keyword", async function(req, res) {
+    //const updateData = req.params.keyword;
     const body = req.body;
-    let updateData = await updateByDate(keyword)
-    getanote[updateData] = body;
-    const responseObject = { success: true, message: 'Your note has been updated' , data: getanote };
+    let date = body.date;
+    let topics = body.topics;
+    let notes = body.notes;
+    let updateNote = await updateByDate(date,topics,notes)
+    //updateNote[updateByDate] = body;
+    const responseObject = { success: true, message: 'Your note has been updated' , data: updateNote };
     res.json(responseObject);
       })  
 
 export default router;
-
