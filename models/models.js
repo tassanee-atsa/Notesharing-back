@@ -31,4 +31,10 @@ export async function updateByDate(date, topics, notes){
     //console.log(res.rows)
     return res.rows
 }
+
+export async function createNote(date, topics, notes){
+  const res = await query(`INSERT INTO getanote (date, topics, notes) VALUES ($1, $2, $3) RETURNING *;`, [topics, notes, date]);
+  console.log(res);
+  return res;
+}
  
