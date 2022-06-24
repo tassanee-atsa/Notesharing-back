@@ -33,7 +33,7 @@ export async function updateByDate(date, topics, notes){
 }
 
 export async function createNote(date, topics, notes){
-  const res = await query(`INSERT INTO getanote (date, notes, date) VALUES ($1, $2, $3) RETURNING *;`, [topics, notes, date]);
+  const res = await query(`INSERT INTO getanote (topics, notes, date) VALUES ($1, $2, $3) RETURNING *;`, [topics, notes, date]);
   console.log(res);
   return res;
 }
