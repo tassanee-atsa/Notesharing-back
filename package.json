@@ -8,9 +8,8 @@
     "dev": "nodemon -r dotenv/config app.js ",
     "db:createTable": "node -r dotenv/config ./db/scripts/createTable.js",
     "db:populateTable": "node -r dotenv/config ./db/scripts/populateTable.js",
-    "db:clearTable": "node -r dotenv/config ./db/scripts/clearTable.js"
-
-
+    "db:clearTable": "node -r dotenv/config ./db/scripts/clearTable.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --setupFiles dotenv/config"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -22,6 +21,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.1",
+    "jest": "^28.1.1",
     "nodemon": "^2.0.16"
   }
 }
