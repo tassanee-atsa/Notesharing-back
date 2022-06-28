@@ -1,12 +1,11 @@
-
 import express from "express";
-import router from "./routes/routes.js"
-import cors from "cors"
+import router from "./routes/routes.js";
+import cors from "cors";
 const app = express();
-const PORT = process.env.port || 3000;
+const PORT = process.env.port;
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 // test route
 app.get("/", function (req, res) {
@@ -15,8 +14,6 @@ app.get("/", function (req, res) {
     message: "Test route up and running!",
   });
 });
-
-
 
 app.use("/notes", router);
 

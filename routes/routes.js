@@ -36,13 +36,11 @@ router.get("/date/:keyword", async function (req, res) {
 
 //UPDATES TOPIC AND NOTES FIELDS
 router.put("/date/:keyword", async function (req, res) {
-  //const updateData = req.params.keyword;
   const body = req.body;
   let date = body.date;
   let topics = body.topics;
   let notes = body.notes;
   let updateNote = await updateByDate(date, topics, notes);
-  //updateNote[updateByDate] = body;
   const responseObject = {
     success: true,
     message: "Your note has been updated",
@@ -51,20 +49,20 @@ router.put("/date/:keyword", async function (req, res) {
   res.json(responseObject);
 });
 
-// CREATES NEW NOTE IN DB
+// CREATES NEW NOTE IN DATABASE
 router.post("/", async function (req, res) {
-    const body = req.body;
-    console.log(body);
-    let date = body.date;
-    let topics = body.topics;
-    let notes = body.notes;
-    console.log(date, topics, notes)
-    await createNote(date, topics, notes);
-    const responseObject = {
-        success: true,
-        message: "Your note has been created",  
-      };
-      res.json(responseObject);
+  const body = req.body;
+  console.log(body);
+  let date = body.date;
+  let topics = body.topics;
+  let notes = body.notes;
+  console.log(date, topics, notes);
+  await createNote(date, topics, notes);
+  const responseObject = {
+    success: true,
+    message: "Your note has been created",
+  };
+  res.json(responseObject);
 });
 
 export default router;
