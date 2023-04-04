@@ -1,6 +1,7 @@
 import pg from "pg";
 
 //using the credentials from .env file
+//host db with Render
 const pool = new pg.Pool({
   user: process.env.PGUSER,
   host: process.env.PGHOST,
