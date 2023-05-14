@@ -10,13 +10,21 @@ export async function getData() {
 //filters the database(request above) table by topic
 export async function getByTopic(topic) {
   const allData = await getData();
-  return allData.filter((note) => note.topics.includes(topic));
+  return allData.filter((note) =>
+    note.topics.toLowerCase().includes(topic.toLowerCase())
+  );
 }
 
 //filters the database table by date
 export async function getByDate(date) {
   const allData = await getData();
   return allData.filter((note) => note.date.includes(date));
+}
+
+// get a specific note by its id
+export async function getById(id) {
+  const res = await query(`SELECT * FROM getanote WHERE id = $1`, [id]);
+  return res.rows;
 }
 
 //updates the database after topic and/or notes have been changed

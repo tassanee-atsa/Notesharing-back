@@ -5,6 +5,7 @@ import {
   getData,
   getByTopic,
   getByDate,
+  getById,
   updateByDate,
   createNote,
 } from "../models/models.js";
@@ -32,6 +33,13 @@ router.get("/date/:keyword", async function (req, res) {
   let keyword = req.params.keyword;
   let dataByDate = await getByDate(keyword);
   res.json({ success: true, payload: dataByDate });
+});
+
+//GETS DATA BY ID
+router.get("/topics/id/:id", async function (req, res) {
+  let id = req.params.id;
+  let dataById = await getById(Number.parseInt(id));
+  res.json({ success: true, payload: dataById });
 });
 
 //UPDATES TOPIC AND NOTES FIELDS
